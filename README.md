@@ -1,1 +1,1 @@
-# da
+# Exploring FAQ in SQL interviews.
