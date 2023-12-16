@@ -16,6 +16,7 @@ def test_query():
     try:
         result = conn.execute(text(sql_query))
         assert result.scalar() == 4  # Change this based on your expected result count
+        print("Result:", result.fetchall())
     finally:
         conn.close()
 
