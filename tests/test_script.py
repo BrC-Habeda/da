@@ -15,9 +15,19 @@ def test_query():
 
     try:
         result = conn.execute(text(sql_query))
-        assert result.scalar() == 4  # Change this based on your expected result count
-        print("Result:", result.fetchall())
+        # Fetch all rows from the result set
+        rows = result.fetchall()
+
+        # Check the actual result count against the expected count
+        expected_count = 4
+        assert len(rows) == expected_count, f"Expected {expected_count} rows, but got {len(rows)}"
+
+        # You can add additional checks here if needed
+
+        print("Test passed successfully!")
+
     finally:
+        # Close the database connection
         conn.close()
 
 if __name__ == '__main__':
