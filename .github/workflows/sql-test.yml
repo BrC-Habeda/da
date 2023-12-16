@@ -1,4 +1,4 @@
-name: SQL Test
+name: Python Test
 
 on:
   push:
@@ -9,20 +9,36 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up PostgreSQL
-        uses: einaregilsson/setup-postgresql@v1
+        run: psql -h localhost -U postgres -d testdb -f ./scripts/setup_database.sql
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          postgresql-version: '12'
+          python-version: "3.x"
 
-      - name: Create and populate database
-        run: psql -U postgres -f ./your-sql-file.sql
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Run SQL query tests
-        run: psql -U postgres -d your_database_name -f ./your-test-sql-file.sql
+      - name: Run tests
+        run: python tests/test_script.py
 
       - name: Set exit status
         id: set_status
@@ -30,7 +46,7 @@ jobs:
 
       - name: Update README if tests pass
         run: |
-          if [ ${{ steps.set_status.outcome }} == 'success' ]; then
+          if [ \${{ steps.set_status.outcome }} == 'success' ]; then
             echo 'Tests passing' > README.md
           else
             echo 'Tests failed' > README.md
