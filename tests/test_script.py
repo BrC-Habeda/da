@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 
 def test_query():
     # Get the path to the SQL file in the root folder
-    sql_file_path = os.path.join(os.path.dirname(__file__), '.scripts/series_generate.sql')
+    sql_file_path = os.path.join(os.path.dirname(__file__), '..scripts/series_generate.sql')
 
     # Read the SQL query from the file
     with open(sql_file_path, 'r') as sql_file:
