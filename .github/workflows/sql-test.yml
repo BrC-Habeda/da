@@ -1,0 +1,38 @@
+name: SQL Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PostgreSQL
+        uses: einaregilsson/setup-postgresql@v1
+        with:
+          postgresql-version: '12'
+
+      - name: Create and populate database
+        run: psql -U postgres -f ./your-sql-file.sql
+
+      - name: Run SQL query tests
+        run: psql -U postgres -d your_database_name -f ./your-test-sql-file.sql
+
+      - name: Set exit status
+        id: set_status
+        run: exit 0
+
+      - name: Update README if tests pass
+        run: |
+          if [ ${{ steps.set_status.outcome }} == 'success' ]; then
+            echo 'Tests passing' > README.md
+          else
+            echo 'Tests failed' > README.md
+          fi
+        if: always()
