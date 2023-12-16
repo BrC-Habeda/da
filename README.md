@@ -4,4 +4,4 @@ Let's say you have a table named sales with columns sale_date and amount, and yo
 
 ## Test Status
 
-[![Generate Series Test](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml/badge.svg?branch=main)](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml)
+[![Generate Series Test](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml/badge.svg)](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml)
