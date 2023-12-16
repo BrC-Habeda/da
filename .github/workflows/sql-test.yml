@@ -24,9 +24,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up PostgreSQL
-        run: psql -h localhost -U postgres -d testdb -f ./scripts/setup_database.sql -w --password=password
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
