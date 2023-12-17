@@ -25,15 +25,15 @@ CREATE TABLE IF NOT EXISTS "DesignAndModeling"."StudentCourses" (
 
  -- Inserting data into the Student table 
 
-INSERT INTO Student (StudentName, DateOfBirth, Major, ContactNumber) 
+INSERT INTO "DesignAndModeling"."Student" (StudentName, DateOfBirth, Major, ContactNumber) 
 VALUES  
-('John Doe', '2000-05-15', 'Computer Science', '+1234567890'), 
-('Jane Smith', '2001-03-12', 'Physics', '+1234567891'), 
-('Jim Bean', '1999-07-25', 'Mathematics', '+1234567892'); 
+('John Doe', '2000-05-15', 'Computer Science', '+254705467890'), 
+('Jane Smith', '2001-03-12', 'Physics', '+254745678913'), 
+('Jim Bean', '1999-07-25', 'Mathematics', '+254700678925'); 
 
 -- Inserting data into the Course table 
 
-INSERT INTO Course (CourseID, CourseName) 
+INSERT INTO "DesignAndModeling"."Course" (CourseID, CourseName) 
 VALUES  
 ('CS101', 'Introduction to Programming'), 
 ('PH102', 'Advanced Physics'), 
@@ -41,7 +41,7 @@ VALUES
 ('DSC101', 'Introduction to Data Science'); 
 
 -- Insert data into the StudentCourses table
-INSERT INTO StudentCourses (StudentID, CourseID)
+INSERT INTO "DesignAndModeling"."StudentCourses" (StudentID, CourseID)
 VALUES
     (1, 'CS101'),
     (2, 'PH102'),
@@ -49,3 +49,7 @@ VALUES
     (1, 'DSC101'),
     (2, 'MA103');
 
+-- SELECT * data in the Student.Courses table
+
+SELECT StudentID
+FROM "DesignAndModelling"."StudentCourses";
