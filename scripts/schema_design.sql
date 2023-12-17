@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS DesignAndModeling.Course (
 );
 
 -- Domain to only accept Kenyan Numbers
-CREATE DOMAIN phone_number AS VARCHAR(10)
+CREATE DOMAIN phone_number AS VARCHAR(15)
   NOT NULL
   CHECK (VALUE ~ '^\+254\d{9}$');
 
