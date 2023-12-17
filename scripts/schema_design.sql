@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS DesignAndModeling.Student (
 CREATE TABLE IF NOT EXISTS DesignAndModeling.StudentCourses (
   EnrollmentID SERIAL PRIMARY KEY,
   StudentID BIGINT REFERENCES DesignAndModeling.Student (StudentID),
-  CourseID VARCHAR(10) UNIQUE REFERENCES DesignAndModeling.Course (CourseID)
+  CourseID VARCHAR(10) REFERENCES DesignAndModeling.Course (CourseID)
 );
 
  -- Inserting data into the Student table 
