@@ -7,13 +7,18 @@ CREATE TABLE IF NOT EXISTS DesignAndModeling.Course (
   CourseName VARCHAR(100)
 );
 
+-- Domain to only accept Kenyan Numbers
+CREATE DOMAIN phone_number AS VARCHAR(10)
+  NOT NULL
+  CHECK (VALUE ~ '^\+254\d{9}$');
+
 -- Table DesignAndModeling.Student
 CREATE TABLE IF NOT EXISTS DesignAndModeling.Student (
   StudentID SERIAL PRIMARY KEY,
   StudentName VARCHAR(100),
   DateOfBirth DATE,
   Major VARCHAR(100),
-  ContactNumber VARCHAR(20)
+  Phone phone_number
 );
 
 -- Table DesignAndModeling.StudentCourses
