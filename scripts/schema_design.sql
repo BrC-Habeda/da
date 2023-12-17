@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS DesignAndModeling.StudentCourses (
 
  -- Inserting data into the Student table 
 
-INSERT INTO DesignAndModeling.Student (StudentName, DateOfBirth, Major, ContactNumber) 
+INSERT INTO DesignAndModeling.Student (StudentName, DateOfBirth, Major, Phone) 
 VALUES  
 ('John Doe', '2000-05-15', 'Computer Science', '+254705467890'), 
 ('Jane Smith', '2001-03-12', 'Physics', '+254745678913'), 
