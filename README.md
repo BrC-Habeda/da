@@ -5,4 +5,4 @@
 
 ## Test Results
 
-[![Generate Series Test](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml/badge.svg)](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml)
+[![SQLTest](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml/badge.svg)](https://github.com/BrC-Habeda/da/actions/workflows/sql-test.yml)
