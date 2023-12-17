@@ -52,4 +52,4 @@ VALUES
 -- SELECT * data in the Student.Courses table
 
 SELECT StudentID
-FROM "DesignAndModelling"."StudentCourses";
+FROM "DesignAndModeling"."StudentCourses";
