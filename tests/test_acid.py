@@ -98,14 +98,15 @@ def test_isolation(conn):
         conn.commit()
 
 def main():
+    conn = None
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
-            dbname="your_database",
-            user="your_user",
-            password="your_password",
-            host="your_host",
-            port="your_port",
+            dbname="testdb",
+            user="postgres",
+            password="postgres",
+            host="localhost",
+            port="5432",
             isolation_level=ISOLATION_LEVEL_READ_COMMITTED
         )
 
@@ -122,7 +123,8 @@ def main():
         print(f"Error: {e}")
 
     finally:
-        # Close the connection
+        # Close the connection if it is open
+        if conn is not None:
             conn.close()
 
 if __name__ == "__main__":
