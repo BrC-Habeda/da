@@ -38,6 +38,7 @@ jobs:
         run: |
           python tests/test_script.py
           python tests/test_schema_design.py
+          python tests/test_acid.py
 
       - name: Set exit status
         id: set_status
