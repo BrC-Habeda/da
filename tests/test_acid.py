@@ -123,7 +123,6 @@ def main():
 
     finally:
         # Close the connection
-        if conn:
             conn.close()
 
 if __name__ == "__main__":
