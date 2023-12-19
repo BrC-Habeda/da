@@ -56,4 +56,4 @@ VALUES
 
 SELECT tablename
 FROM pg_tables
-WHERE schemaname = 'DesignAndModeling';
+WHERE schemaname = 'designandmodeling';
