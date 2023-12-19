@@ -53,3 +53,7 @@ VALUES
     (3, 'MA103'),
     (1, 'DSC101'),
     (2, 'MA103');
+
+SELECT table_name
+            FROM information_schema.tables
+            WHERE table_schema = 'DesignAndModelling';
