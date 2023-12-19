@@ -54,6 +54,6 @@ VALUES
     (1, 'DSC101'),
     (2, 'MA103');
 
-SELECT table_name
-            FROM pg.tables
-            WHERE table_schema = 'DesignAndModeling';
+SELECT tablename
+FROM pg_tables
+WHERE schemaname = 'DesignAndModeling';
