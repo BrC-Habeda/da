@@ -55,5 +55,5 @@ VALUES
     (2, 'MA103');
 
 SELECT table_name
-            FROM information_schema.tables
+            FROM pg.tables
             WHERE table_schema = 'DesignAndModeling';

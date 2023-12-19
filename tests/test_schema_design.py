@@ -36,11 +36,9 @@ def test_schema():
 
     # Read the SQL query from the file
     with open(sql_file_path, 'r') as sql_file:
-        sql_query = sql_file.read()
-        
+        sql_query = sql_file.read()      
     # Get the Schema Name 
-    schema_name = 'DesignAndModelling'
-    
+    schema_name = 'DesignAndModeling'
 
     # Connect to the database and execute the SQL query
     engine = create_engine('postgresql://postgres:postgres@localhost:5432/testdb')
