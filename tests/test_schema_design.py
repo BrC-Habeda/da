@@ -46,7 +46,7 @@ def test_schema():
     engine = create_engine('postgresql://postgres:postgres@localhost:5432/testdb')
     conn = engine.connect()
 
-       try:
+    try:
         result = conn.execute(text(sql_query))
         # Fetch all rows from the result set
         rows = result.fetchall()
