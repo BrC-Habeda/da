@@ -1,5 +1,6 @@
 import psycopg2
-from psycopg2.extensions import ISOLATION_LEVEL_READ_COMMITTED
+from psycopg2.extensions import ISOLATION_LEVEL_SERIALIZABLE
+
 
 # Function to execute a query
 def execute_query(conn, query):
