@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine, text, MetaData
+from sqlalchemy import create_engine, text
 
 def test_query():
     # Get the path to the SQL file in the root folder
