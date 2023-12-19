@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text, MetaData
 
 def test_query():
     # Get the path to the SQL file in the root folder
-    sql_file_path = os.path.join(os.path.dirname(__file__), '../scripts/schema_design.sql')
+    sql_file_path = os.path.join(os.path.dirname(__file__), '../scripts/db_design.sql')
 
     # Read the SQL query from the file
     with open(sql_file_path, 'r') as sql_file:
@@ -32,7 +32,7 @@ def test_query():
 
 def test_schema():
     # Get the path to the SQL file in the root folder
-    sql_file_path = os.path.join(os.path.dirname(__file__), '../scripts/schema_design.sql')
+    sql_file_path = os.path.join(os.path.dirname(__file__), '../scripts/schema_test.sql')
 
     # Read the SQL query from the file
     with open(sql_file_path, 'r') as sql_file:
