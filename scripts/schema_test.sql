@@ -56,4 +56,4 @@ VALUES
 
 SELECT table_name
             FROM information_schema.tables
-            WHERE table_schema = 'DesignAndModelling';
+            WHERE table_schema = 'DesignAndModeling';
