@@ -10,26 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      postgres:
+      postgres-primary:
         image: postgres:12
         env:
           POSTGRES_DB: testdb
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DATABASE: testdb
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-      
-      postgres:
-        image: postgres:13
+
+      postgres-relica:
+        image: postgres:12
         env:
           POSTGRES_DB: repdb
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DATABASE: repdb
         ports:
-          -5433:5433
+          - 5433:5433
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -51,6 +49,7 @@ jobs:
           python tests/test_script.py
           python tests/test_schema_design.py
           python tests/test_acid.py
+          python tests/test_replication.py
 
       - name: Set exit status
         id: set_status
