@@ -12,6 +12,7 @@ def execute_query(conn, query):
         print(f"Error executing query: {e}")
         conn.rollback()
 
+
 # Function to test Atomicity and Consistency
 def test_atomicity_and_consistency(conn):
     try:
@@ -19,8 +20,12 @@ def test_atomicity_and_consistency(conn):
         conn.autocommit = False
 
         # Simulate a database crash before committing
-        execute_query(conn, "CREATE TABLE test_table (id SERIAL PRIMARY KEY, data TEXT);")
-        execute_query(conn, "INSERT INTO test_table (data) VALUES ('Atomicity and Consistency');")
+        execute_query(
+            conn, "CREATE TABLE test_table (id SERIAL PRIMARY KEY, data TEXT);"
+        )
+        execute_query(
+            conn, "INSERT INTO test_table (data) VALUES ('Atomicity and Consistency');"
+        )
 
         # Simulate a database crash before committing
         raise Exception("Simulating database crash before commit")
@@ -34,19 +39,27 @@ def test_atomicity_and_consistency(conn):
         print("Data in the table after crash (Atomicity and Consistency check):", data)
 
         # Assert that the table is empty due to the crash before commit
-        assert not data, "Atomicity and Consistency test failed: Data present after crash."
+        assert (
+            not data
+        ), "Atomicity and Consistency test failed: Data present after crash."
 
         # Clean up
         execute_query(conn, "DROP TABLE IF EXISTS test_table;")
         conn.commit()
         conn.autocommit = True
 
+
 # Function to test Durability
 def test_durability(conn):
     try:
         # Create a table and insert data
-        execute_query(conn, "CREATE TABLE test_table_durability (id SERIAL PRIMARY KEY, data TEXT);")
-        execute_query(conn, "INSERT INTO test_table_durability (data) VALUES ('Durability Test');")
+        execute_query(
+            conn,
+            "CREATE TABLE test_table_durability (id SERIAL PRIMARY KEY, data TEXT);",
+        )
+        execute_query(
+            conn, "INSERT INTO test_table_durability (data) VALUES ('Durability Test');"
+        )
 
         # Simulate a database crash after committing
         raise Exception("Simulating database crash after commit")
@@ -66,12 +79,18 @@ def test_durability(conn):
         execute_query(conn, "DROP TABLE IF EXISTS test_table_durability;")
         conn.commit()
 
+
 # Function to test Isolation
 def test_isolation(conn):
     try:
         # Create a table and insert data
-        execute_query(conn, "CREATE TABLE test_table_isolation (id SERIAL PRIMARY KEY, data TEXT);")
-        execute_query(conn, "INSERT INTO test_table_isolation (data) VALUES ('Isolation Test');")
+        execute_query(
+            conn,
+            "CREATE TABLE test_table_isolation (id SERIAL PRIMARY KEY, data TEXT);",
+        )
+        execute_query(
+            conn, "INSERT INTO test_table_isolation (data) VALUES ('Isolation Test');"
+        )
 
         # Perform a read (Isolation check)
         with conn.cursor() as cursor:
@@ -80,7 +99,9 @@ def test_isolation(conn):
             print("Data read 1 (Isolation check):", data_read_1)
 
             # Simulate another transaction updating the data
-            execute_query(conn, "UPDATE test_table_isolation SET data = 'Updated Data';")
+            execute_query(
+                conn, "UPDATE test_table_isolation SET data = 'Updated Data';"
+            )
 
             # Perform another read in the same transaction
             cursor.execute("SELECT * FROM test_table_isolation;")
@@ -98,6 +119,7 @@ def test_isolation(conn):
         execute_query(conn, "DROP TABLE IF EXISTS test_table_isolation;")
         conn.commit()
 
+
 def main():
     conn = None
     try:
@@ -108,7 +130,7 @@ def main():
             password="postgres",
             host="localhost",
             port="5432",
-            isolation_level=ISOLATION_LEVEL_READ_COMMITTED
+            isolation_level=ISOLATION_LEVEL_SERIALIZABLE,
         )
 
         # Test Atomicity and Consistency
@@ -127,6 +149,7 @@ def main():
         # Close the connection if it is open
         if conn is not None:
             conn.close()
+
 
 if __name__ == "__main__":
     main()
