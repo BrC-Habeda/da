@@ -1,7 +1,8 @@
+import re
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import validates
 from sqlalchemy.orm import declarative_base, relationship
 
-import re
 
 Base = declarative_base()
 
