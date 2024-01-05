@@ -4,6 +4,7 @@
 2. `Design a database and proof it is ACID compliant`
 3. `Test the database for Replication`
 4. `Create a New Migration and Test it.`
+5. `Find the department with the highest attrition rate.`
 
 ## Test Results
 
