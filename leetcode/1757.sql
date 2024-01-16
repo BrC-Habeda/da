@@ -10,7 +10,6 @@ CREATE TABLE products (
 --INSERT data into Table
 INSERT INTO products (product_id,low_fats,recyclable)
 VALUES
-(0,'Y','N'),
 (1,'Y','Y'),
 (2,'N','Y'),
 (3,'Y','Y'),
