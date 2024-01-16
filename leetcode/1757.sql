@@ -1,12 +1,10 @@
 --1757. Recyclable and Low Fat Products
--- Define the enum type
-CREATE TYPE enum AS ENUM ('Y', 'N');
 
 --Create Products Table
 CREATE TABLE products (
     product_id INT PRIMARY KEY,
-    low_fats enum('Y','N'),
-    recyclable enum('Y','N')
+    low_fats VARCHAR(1),
+    recyclable VARCHAR(1)
 );
 
 --INSERT data into Table
