@@ -17,3 +17,8 @@ VALUES
 (1,'Zack',1),
 (1,'Mark',2);
 
+-- Find the names of the customer that are not referred by the customer with id = 2
+
+SELECT name
+FROM customer 
+WHERE referee_id NOT IN (2);
