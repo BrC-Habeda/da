@@ -11,11 +11,11 @@ CREATE TABLE customer(
 INSERT INTO customer(id,name,referee_id)
 VALUES
 (1,'Will',null),
-(1,'Jane',null),
-(1,'Alex',2),
-(1,'Bill',null),
-(1,'Zack',1),
-(1,'Mark',2);
+(2,'Jane',null),
+(3,'Alex',2),
+(4,'Bill',null),
+(5,'Zack',1),
+(6,'Mark',2);
 
 -- Find the names of the customer that are not referred by the customer with id = 2
 
