@@ -27,7 +27,11 @@ def run_tests(sql_files):
             if "584" in sql_file:
                 expected_count = 4
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
-                
+            
+            # Big Countries
+            if "595" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
             
             print(f"Test passed for {sql_file}")
 
