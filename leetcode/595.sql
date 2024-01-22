@@ -2,10 +2,10 @@
 
 -- Create table World
 CREATE TABLE world(
-    name varchar(255),
-    continent varchar(255),
-    area int(11),
-    population int(11),
+    name varchar,
+    continent varchar,
+    area int,
+    population int,
     gdp bigint
 )
 
