@@ -10,6 +10,7 @@ CREATE TABLE world(
 )
 
 -- Insert data into the table
+
 INSERT INTO world(name,continent,area,population,gdp)
 VALUES
 ('Afghanistan','Asia',652230,25500100,20343000000),
