@@ -7,11 +7,11 @@ CREATE TABLE world(
     area int,
     population int,
     gdp bigint
-)
+);
 
 -- Insert data into the table
 
-INSERT INTO world(name,continent,area,population,gdp)
+INSERT INTO world (name,continent,area,population,gdp)
 VALUES
 ('Afghanistan','Asia',652230,25500100,20343000000),
 ('Albania','Europe',28748,2831741,12960000000),
