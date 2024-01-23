@@ -19,3 +19,11 @@ VALUES
 (4,7,1,2019-07-22),
 (3,4,4,2019-07-21),
 (3,4,4,2019-07-21);
+
+--Write a solution to find all the authors that viewed at least one of their own articles
+--Return the result table sorted by id in ascending order
+
+SELECT DISTINCT author_id id
+FROM views
+WHERE author_id = viewer_id
+ORDER BY id;
