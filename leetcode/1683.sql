@@ -7,3 +7,10 @@ CREATE TABLE tweets(
     tweet_id INT,
     content text
 );
+
+-- Insert the data in the table
+
+INSERT INTO tweets(tweet_id,content)
+VALUES
+(1,Vote for Biden),
+(2,Let us make America great again!);
