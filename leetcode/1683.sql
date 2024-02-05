@@ -12,8 +12,8 @@ CREATE TABLE tweets(
 
 INSERT INTO tweets(tweet_id,content)
 VALUES
-(1,Vote for Biden),
-(2,Let us make America great again!);
+(1,'Vote for Biden'),
+(2,'Let us make America great again!');
 
 -- SQL Query
 
