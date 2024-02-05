@@ -14,3 +14,9 @@ INSERT INTO tweets(tweet_id,content)
 VALUES
 (1,Vote for Biden),
 (2,Let us make America great again!);
+
+-- SQL Query
+
+SELECT tweet_id
+FROM tweets
+WHERE CHAR_LENGTH(content) > 15;
