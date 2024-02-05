@@ -5,7 +5,7 @@
 -- CREATE THE TABLE 
 CREATE TABLE tweets(
     tweet_id INT,
-    content text
+    content varchar
 );
 
 -- Insert the data in the table
