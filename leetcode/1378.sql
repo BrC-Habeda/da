@@ -36,5 +36,5 @@ VALUES
 -- Query
 
 SELECT unique_id,name
-FROM Employee 
-LEFT JOIN EmployeeUNI;
+FROM Employee e
+LEFT JOIN EmployeeUNI eu ON e.id = eu.id;
