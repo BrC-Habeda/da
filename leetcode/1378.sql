@@ -1,0 +1,3 @@
+-- 1378. Replace Employee ID with the unique identifier
+-- Write a solution to show the unique ID of each iser, if a user does not have
+-- a unique ID replace just show null. Return the result table in any order.
