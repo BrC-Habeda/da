@@ -33,10 +33,21 @@ def run_tests(sql_files):
                 expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
             
+            # Invalid Tweets
+            if "1683" in sql_file:
+                expected_count = 4
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but fount {len(rows)}"
+            
+            # Article Views
+            if "1148" in sql_file:
+                expected_count = 3
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
+            
+            # Replace EmployeeID
             if "1378" in sql_file:
                 expected_count = 5
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
-                
+            
             print(f"Test passed for {sql_file}")
 
         finally:
