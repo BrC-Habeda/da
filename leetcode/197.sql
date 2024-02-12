@@ -15,3 +15,7 @@ VALUES
 
 -- Write a solution to find all the dates' Id with higher
 --temperature compared to its previous dates (yesterday)
+
+SELECT id
+FROM weather
+WHERE recordDate - 1 < recordDate;
