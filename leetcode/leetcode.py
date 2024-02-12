@@ -58,6 +58,11 @@ def run_tests(sql_files):
                 expected_count = 3
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
             
+            # Rising temperature
+            if "197" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
+                
             print(f"Test passed for {sql_file}")
 
         finally:
