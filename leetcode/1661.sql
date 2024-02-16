@@ -21,15 +21,14 @@ VALUES
 (2,0,'end',4.512);
 
 -- SQL Query
-SELECT machine_id,
-       ROUND(CAST(SUM(end_time - start_time) / COUNT(DISTINCT process_id) AS numeric), 3) AS processing_time
-FROM (
-    SELECT machine_id,
-           process_id,
-           MAX(CASE WHEN activity_type = 'start' THEN timestamp END) AS start_time,
-           MAX(CASE WHEN activity_type = 'end' THEN timestamp END) AS end_time
+
+SELECT machine_id, ROUND(CAST(SUM(end_time - start_time) / COUNT(DISTINCT process_id) AS numeric), 3) AS processing_time
+FROM(
+    SELECT  machine_id,process_id,
+            MAX(CASE WHEN activity_type = 'start' THEN timestamp END) AS start_time,
+            MAX(CASE WHEN activity_type = 'end' THEN timestamp END) AS end_time
     FROM Activity
-    GROUP BY machine_id, process_id
+    GROUP BY machine_id, process_id  
 ) AS processed_activities
 GROUP BY machine_id;
 
