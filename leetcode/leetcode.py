@@ -62,7 +62,12 @@ def run_tests(sql_files):
             if "197" in sql_file:
                 expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
-                
+            
+            # Average time of process per machine
+            if "1661" in sql_file:
+                expected_count = 3
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
+            
             print(f"Test passed for {sql_file}")
 
         finally:
