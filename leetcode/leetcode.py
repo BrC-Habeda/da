@@ -68,6 +68,10 @@ def run_tests(sql_files):
                 expected_count = 3
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
             
+            # Employee Bonus
+            if "577" in sql_file:
+                expected_count = 3
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
             print(f"Test passed for {sql_file}")
 
         finally:
