@@ -5,7 +5,7 @@ CREATE TABLE activity(
     process_id int,
     activity_type enum,
     timestamp float
-)
+);
 
 INSERT INTO activity (machine_id,process_id,activity_type,timestamp)
 VALUES
