@@ -3,7 +3,7 @@
 CREATE TABLE activity(
     machine_id int,
     process_id int,
-    activity_type enum,
+    activity_type ENUM('start','stop'),
     timestamp float
 );
 
