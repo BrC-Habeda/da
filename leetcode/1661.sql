@@ -1,5 +1,8 @@
 -- 1661. Average Time of Process per machine
 
+-- Create custom ENUM type
+CREATE TYPE activity_type_enum AS ENUM ('start', 'end');
+
 CREATE TABLE activity(
     machine_id int,
     process_id int,
