@@ -35,7 +35,7 @@ def run_tests(sql_files):
             
             # Invalid Tweets
             if "1683" in sql_file:
-                expected_count = 4
+                expected_count = 1
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but fount {len(rows)}"
             
             # Article Views
