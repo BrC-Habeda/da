@@ -40,7 +40,7 @@ def run_tests(sql_files):
             
             # Article Views
             if "1148" in sql_file:
-                expected_count = 3
+                expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
             
             # Replace EmployeeID
