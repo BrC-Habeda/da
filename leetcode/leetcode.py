@@ -66,19 +66,27 @@ def run_tests(sql_files):
             # Average time of process per machine
             if "1661" in sql_file:
                 expected_count = 3
-                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
             # Employee Bonus
             if "577" in sql_file:
                 expected_count = 3
-                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
                 
             # Students and Examinations
             if "1280" in sql_file:
                 expected_count = 12
-                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation difference"
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
+            # Cities with stopovers
+            if "cities" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
+            # Managers with direct reports
+            if "570" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             print(f"Test passed for {sql_file}")
 
         finally:
