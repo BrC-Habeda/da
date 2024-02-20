@@ -18,9 +18,13 @@ VALUES
 
 -- Write a solution to find managers with atleast five direct reports
 
-SELECT m.name
-FROM employee m
-JOIN employee e
-    ON m.id = e.managerId
-GROUP BY m.name
-HAVING COUNT(e.id)>5;
+SELECT name 
+FROM Employee 
+WHERE id IN 
+(
+    SELECT managerId 
+    FROM Employee 
+    GROUP BY managerId 
+    HAVING COUNT(*) >= 5
+);
+
