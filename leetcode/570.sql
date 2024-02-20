@@ -16,3 +16,11 @@ VALUES
 (105,'Anne','A',101),
 (106,'Ron','B',101);
 
+-- Write a solution to find managers with atleast five direct reports
+
+SELECT m.name
+FROM employee m
+JOIN employee e
+    ON m.id = e.managerId
+GROUP BY m.name
+HAVING COUNT(e.id)>5;

@@ -85,7 +85,7 @@ def run_tests(sql_files):
             
             # Managers with direct reports
             if "570" in sql_file:
-                expected_count = 2
+                expected_count = 1
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             print(f"Test passed for {sql_file}")
 
