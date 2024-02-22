@@ -30,3 +30,22 @@ VALUES
 (7,'2021-06-14 13:59:27','confirmed'),
 (2,'2021-01-22 00:00:00','confirmed'),
 (2,'2021-02-28 23:59:59','timeout');
+
+--Write a solution to find the confirmation rate of each user
+--The confirmation rate of a user is the number of 'confirmed' messages
+--divided by the total number of requested confirmation messages. The
+--confirmation rate of a user that did not request any confirmation messages
+-- is '0'. Round the confirmation rate to two decimal places.
+
+SELECT 
+    s.user_id,
+    ROUND(
+        COALESCE(
+            SUM(CASE WHEN c.action = 'confirmed' THEN 1 ELSE 0 END)::NUMERIC
+            /NULLIF(COUNT(c.user_id),0),0
+        ),2
+    ) AS confirmation_rate
+FROM signups s
+LEFT JOIN confirmations c
+    ON s.user_id = c.user_id
+GROUP BY s.user_id;
