@@ -15,6 +15,18 @@ VALUES
 (4,'Ice song','Fantasy',8.6),
 (5,'House card','Interesting',9.1);
 
+-- Write a solution to report the movies with an off-numbered ID and a description that
+-- is not 'boring'
+-- Return the result table ordered by rating in descending order.
 
+WITH CTE AS (
+    SELECT *, id % 2 t
+    FROM cinema
+)
 
+SELECT id,movie,description,rating
+FROM CTE
+WHERE t != 0
+    AND description != 'boring'
+ORDER BY rating DESC;
 
