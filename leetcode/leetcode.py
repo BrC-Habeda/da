@@ -99,6 +99,10 @@ def run_tests(sql_files):
                 expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
                 
+            # Average Selling Price
+            if "1251" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
 
         finally:
