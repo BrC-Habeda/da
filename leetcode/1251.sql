@@ -26,3 +26,15 @@ VALUES
 (1,'2019-03-01',15),
 (2,'2019-02-10',200),
 (2,'2019-03-22',30);
+
+-- Write a solution to find the average selling price for each product
+-- average_price should be rounded to 2 decimal places
+
+SELECT
+    p.product_id,
+    COALESCE(ROUND(SUM((p.price * u.units)::numeric) / NULLIF(SUM(u.units),0),2),0) average_price
+FROM prices p 
+LEFT JOIN unitsSold u
+    ON p.product_id = u.product_id
+    AND u.purchase_date BETWEEN p.start_date AND p.end_date
+GROUP BY p.product_id;
