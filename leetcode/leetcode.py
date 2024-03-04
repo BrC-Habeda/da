@@ -78,11 +78,6 @@ def run_tests(sql_files):
                 expected_count = 12
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
-            # Cities with stopovers
-            if "cities" in sql_file:
-                expected_count = 2
-                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
-            
             # Managers with direct reports
             if "570" in sql_file:
                 expected_count = 1
@@ -104,6 +99,10 @@ def run_tests(sql_files):
                 expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
+            # Cities with stopovers
+            if "cities" in sql_file:
+                expected_count = 2
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
 
         finally:
             conn.close()
