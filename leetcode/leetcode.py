@@ -109,6 +109,12 @@ def run_tests(sql_files):
                 expected_count = 2
                 assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
             
+            # Percentage of Users attended a contest
+            if "1633" in sql_file:
+                expected_count = 5
+                assert len(rows) == expected_count, f"Test failed for {sql_file}: Expectation differences"
+            
+            
         finally:
             conn.close()
 
