@@ -116,7 +116,7 @@ def run_tests(sql_files):
                 expected_count = 4
                 assert (
                     len(rows) == expected_count
-                ), f"Test failed for {sql_file}: Expectation differences"
+                ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}"
 
             # Not boring movies
             if "620" in sql_file:
