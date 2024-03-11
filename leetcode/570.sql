@@ -9,7 +9,7 @@ CREATE TABLE employee(
 
 INSERT INTO employee(int,name,department,managerId)
 VALUES
-(101,'John','A',),
+(101,'John','A',null),
 (102,'Dan','A',101),
 (103,'James','A',101),
 (104,'Amy','A',101),
