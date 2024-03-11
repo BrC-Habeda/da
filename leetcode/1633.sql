@@ -30,3 +30,21 @@ VALUES
 (210,2),
 (207,2),
 (210,7);
+
+-- Write a solution to find the users registered in each contest rounded to 2 decimals
+-- Return the result table ordered by percentage in descending order. In case of a tie,
+-- order it by contest_id in ascending order
+
+WITH ContestUserCounts AS (
+    SELECT contest_id, COUNT(DISTINCT user_id) AS user_count
+    FROM Register
+    GROUP BY contest_id
+),
+TotalUsers AS (
+    SELECT COUNT(DISTINCT user_id) AS total_users
+    FROM Users
+)
+SELECT c.contest_id, 
+       ROUND((c.user_count * 100.0 / t.total_users), 2) AS percentage
+FROM ContestUserCounts c, TotalUsers t
+ORDER BY percentage DESC, c.contest_id;
