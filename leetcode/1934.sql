@@ -2,7 +2,7 @@
 
 CREATE TABLE signups(
     user_id int,
-    time_stamp datetime
+    time_stamp date
 );
 
 --Create custom ENUM type
@@ -10,7 +10,7 @@ CREATE TYPE confirmation_type_enum AS ENUM ('confirmed', 'timeout');
 
 CREATE TABLE confirmations(
     user_id int,
-    time_stamp datetime,
+    time_stamp date,
     action confirmation_type_enum
 );
 

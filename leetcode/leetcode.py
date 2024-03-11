@@ -132,6 +132,13 @@ def run_tests(sql_files):
                     len(rows) == expected_count
                 ), f"Test failed for {sql_file}: Expectation differences"
 
+            # Cities with stopovers
+            if "cities" in sql_file:
+                expected_count = 2
+                assert (
+                    len(rows) == expected_count
+                ), f"Test failed for {sql_file}: Expectation differences"
+
             # Project Employees
             if "1075" in sql_file:
                 expected_count = 2
