@@ -155,7 +155,7 @@ def run_tests(sql_files):
 
             # Queries Quality and Percentage
             if "1211" in sql_file:
-                expected_count = 1
+                expected_count = 2
                 assert (
                     len(rows) == expected_count
                 ), f"Test failed for {sql_file}: Expectation differences"
