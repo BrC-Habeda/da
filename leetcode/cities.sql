@@ -18,7 +18,7 @@ VALUES
 ('CDG','MUC'),
 ('JFK','HND'),
 ('JFK','MUC'),
-('MUC',NRT);
+('MUC','NRT');
 
 INSERT INTO airports(city_name,port_code)
 VALUES
