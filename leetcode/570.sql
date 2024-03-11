@@ -7,7 +7,7 @@ CREATE TABLE employee(
     managerId int
 );
 
-INSERT INTO employee(int,name,department,managerId)
+INSERT INTO employee(id,name,department,managerId)
 VALUES
 (101,'John','A',null),
 (102,'Dan','A',101),
