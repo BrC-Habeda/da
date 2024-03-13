@@ -153,6 +153,13 @@ def run_tests(sql_files):
                     len(rows) == expected_count
                 ), f"Test failed for {sql_file}: Expectation differences"
 
+            # Monthly Transactions I
+            if "1193" in sql_file:
+                expected_count = 3
+                assert (
+                    len(rows) == expected_count
+                ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}."
+
         finally:
             conn.close()
 
