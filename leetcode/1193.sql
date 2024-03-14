@@ -22,12 +22,12 @@ VALUES
 -- total amount, the number of approved transactions and their total amount
 
 SELECT 
-    TO_CHAR(DATE_TRUNC('MONTH',trans_date),'YYYY-MM') month,
+    TO_CHAR(DATE_TRUNC('MONTH',trans_date),'YYYY-MM') AS month,
     country,
-    COUNT(*) trans_count,
-    SUM(amount) trans_total_amount,
-    COUNT(*) FILTER(WHERE state = 'approved') approved_count,
-    SUM(amount) FILTER (WHERE state = 'approved') approved_total_amount
+    COUNT(*) AS trans_count,
+    SUM(amount) AS trans_total_amount,
+    COUNT(*) FILTER(WHERE state = 'approved') AS approved_count,
+    SUM(amount) FILTER (WHERE state = 'approved') AS approved_total_amount
 FROM
     transactions
 GROUP BY
