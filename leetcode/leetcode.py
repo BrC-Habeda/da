@@ -159,6 +159,14 @@ def run_tests(sql_files):
                 assert (
                     len(rows) == expected_count
                 ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}."
+                
+            # Immediate Food Delivery II
+            if "1174" in sql_file:
+                expected_count = 1
+                assert (
+                    len(rows) == expected_count
+                ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}."
+
 
         finally:
             conn.close()
