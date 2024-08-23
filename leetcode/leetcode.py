@@ -18,12 +18,6 @@ def run_tests(sql_files):
 
             # Fetch all rows from the query
             rows = result.fetchall()
-            
-            # Fetch the first row from the query result
-            row = result.fetchone()
-
-            # Extract the actual value
-            actual_value = row[0]
 
             # Perform assertions based on the file name or content
             if "1757" in sql_file:
@@ -168,6 +162,7 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
+                actual_value = result.fetchone()
                 tolerance = 0.01 
                 expected_value = 50
                 assert (
