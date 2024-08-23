@@ -162,7 +162,7 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                actual_value = result.fetchone()[0]
+                actual_value = result.fetchone()
                 expected_value = 50.00
                 assert (
                     actual_value == expected_value
