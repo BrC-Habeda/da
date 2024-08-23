@@ -15,16 +15,14 @@ def run_tests(sql_files):
 
         # Run the tests for the query
         try:
-            with conn.cursor() as cursor:
-                cursor.execute(text(sql_query))
-            
-                # Fetch the single result
-                row = cursor.fetchone()
+            with engine.connect() as conn:
+                # Execute the query
+                result = conn.execute(text(sql_query))
 
                 # Fetch all rows from the query
-                rows = cursor.fetchall()
+                rows = result.fetchall()
                 
-                value = row[0]
+                
 
                 # Perform assertions based on the file name or content
                 if "1757" in sql_file:
@@ -169,6 +167,8 @@ def run_tests(sql_files):
                     
                 # Immediate Food Delivery II
                 if "1174" in sql_file:
+                    row = result.fetchone()
+                    value = row[0]
                     expected_value = 50.00
                     assert (
                         value == expected_value
