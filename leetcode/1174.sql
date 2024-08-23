@@ -4,7 +4,8 @@ CREATE TABLE delivery (
     customer_id int,
     order_date date,
     customer_pref_delivery_date date
-)
+);
+
 INSERT INTO delivery(delivery_id,customer_id,order_date,customer_pref_delivery_date)
 VALUES
 (1,1,'2019-08-01','2019-08-02'),
