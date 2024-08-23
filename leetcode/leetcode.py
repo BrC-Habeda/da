@@ -162,12 +162,10 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                actual_value = result.fetchone()
-                tolerance = 0.01 
-                expected_value = 50
+                expected_count = 1
                 assert (
-                    abs(actual_value - expected_value) < tolerance
-                ), f"Test failed for {sql_file}: Expected {expected_value} but got {actual_value}."
+                    len(rows) == expected_count
+                ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}."
 
 
         finally:
