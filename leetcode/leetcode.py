@@ -18,6 +18,8 @@ def run_tests(sql_files):
 
             # Fetch all rows from the query
             rows = result.fetchall()
+            
+            value = rows[0][0]
 
             # Perform assertions based on the file name or content
             if "1757" in sql_file:
@@ -162,11 +164,10 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                actual_value = result.fetchone()
                 expected_value = 50.00
                 assert (
-                    actual_value == expected_value
-                ), f"Test failed for {sql_file}: Expected {expected_value} but got {actual_value}."
+                    value == expected_value
+                ), f"Test failed for {sql_file}: Expected {expected_value} but got {value}."
 
 
         finally:
