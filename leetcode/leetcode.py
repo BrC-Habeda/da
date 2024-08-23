@@ -162,7 +162,7 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                actual = result()
+                actual = conn.execute(text(sql_query))
                 expected_output = 50
                 tolerance = 0.01  # Allowable difference due to rounding errors
                 assert abs(actual - expected_output) < tolerance, (
