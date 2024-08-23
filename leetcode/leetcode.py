@@ -19,7 +19,7 @@ def run_tests(sql_files):
             # Fetch all rows from the query
             rows = result.fetchall()
             
-            value = rows[0][0]
+            value = rows[0]
 
             # Perform assertions based on the file name or content
             if "1757" in sql_file:
