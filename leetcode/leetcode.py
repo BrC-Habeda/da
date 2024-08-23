@@ -18,6 +18,12 @@ def run_tests(sql_files):
 
             # Fetch all rows from the query
             rows = result.fetchall()
+            
+            # Fetch the first row from the query result
+            row = result.fetchone()
+
+            # Extract the actual value
+            actual_value = row[0]
 
             # Perform assertions based on the file name or content
             if "1757" in sql_file:
@@ -162,12 +168,11 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                actual = conn.execute(text(sql_query))
-                expected_output = 50
-                tolerance = 0.01  # Allowable difference due to rounding errors
-                assert abs(actual - expected_output) < tolerance, (
-                    f"Test failed: Expected {expected_output}, but got {actual}."
-                )
+                tolerance = 0.01 
+                expected_value = 50
+                assert (
+                    abs(actual_value - expected_value) < tolerance
+                ), f"Test failed for {sql_file}: Expected {expected_value} but got {actual_value}."
 
 
         finally:
