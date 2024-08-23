@@ -22,7 +22,7 @@ WITH FirstOrders AS (
     SELECT 
         customer_id,
         MIN(order_date) AS first_order_date
-    FROM Delivery
+    FROM delivery
     GROUP BY customer_id
 ),
 ImmediateOrders AS (
@@ -31,7 +31,7 @@ ImmediateOrders AS (
         d.delivery_id,
         d.order_date,
         d.customer_pref_delivery_date
-    FROM Delivery d
+    FROM delivery d
     JOIN FirstOrders fo
     ON d.customer_id = fo.customer_id AND d.order_date = fo.first_order_date
     WHERE d.order_date = d.customer_pref_delivery_date
