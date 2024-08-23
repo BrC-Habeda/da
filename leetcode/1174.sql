@@ -18,15 +18,35 @@ VALUES
 
 -- Write a solution to find the percentage of immediate orders of all customers,
 -- rounded to 2 decimal places
-SELECT
+WITH FirstOrders AS (
+    SELECT 
+        customer_id,
+        MIN(order_date) AS first_order_date
+    FROM Delivery
+    GROUP BY customer_id
+),
+ImmediateOrders AS (
+    SELECT
+        d.customer_id,
+        d.delivery_id,
+        d.order_date,
+        d.customer_pref_delivery_date
+    FROM Delivery d
+    JOIN FirstOrders fo
+    ON d.customer_id = fo.customer_id AND d.order_date = fo.first_order_date
+    WHERE d.order_date = d.customer_pref_delivery_date
+),
+TotalFirstOrders AS (
+    SELECT COUNT(*) AS total_first_orders
+    FROM FirstOrders
+),
+ImmediateFirstOrders AS (
+    SELECT COUNT(*) AS immediate_first_orders
+    FROM ImmediateOrders
+)
+SELECT 
     ROUND(
-        100.0 * SUM(
-            CASE
-                WHEN order_date = customer_pref_delivery_date
-                THEN 1
-                ELSE 0
-            END
-            ) / COUNT(*)
-        ,2
-        ) immediate_percentage
-FROM delivery;
+        (SELECT immediate_first_orders FROM ImmediateFirstOrders)::numeric / 
+        (SELECT total_first_orders FROM TotalFirstOrders)::numeric * 100, 
+        2
+    ) AS immediate_percentage;

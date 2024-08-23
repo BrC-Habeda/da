@@ -162,10 +162,12 @@ def run_tests(sql_files):
                 
             # Immediate Food Delivery II
             if "1174" in sql_file:
-                expected_count = 1
-                assert (
-                    len(rows) == expected_count
-                ), f"Test failed for {sql_file}: Expected {expected_count} but found {len(rows)}."
+                actual = result()
+                expected_output = 50
+                tolerance = 0.01  # Allowable difference due to rounding errors
+                assert abs(actual - expected_output) < tolerance, (
+                    f"Test failed: Expected {expected_output}, but got {actual}."
+                )
 
 
         finally:
