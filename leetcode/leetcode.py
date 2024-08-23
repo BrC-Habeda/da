@@ -12,12 +12,19 @@ def run_tests(sql_files):
 
             # Connect to the database and execute the query
             with engine.connect() as conn:
+                print(f"Executing query from {sql_file}:")
+                print(sql_query)
+                
                 # Execute the query
                 result = conn.execute(text(sql_query))
 
                 # Fetch all rows from the query
                 rows = result.fetchall()
                 
+                # Check if any rows were returned
+                if not rows:
+                    raise ValueError(f"No data returned for query in {sql_file}. Query: {sql_query}")
+
                 # Perform assertions based on the file name or content
                 if "1757" in sql_file:
                     expected_count = 2
@@ -141,7 +148,6 @@ def run_tests(sql_files):
 
                 # Immediate Food Delivery II
                 if "1174" in sql_file:
-                    # If it's expected to return a single value
                     row = result.fetchone()
                     if row is None:
                         raise ValueError(f"No data returned for query: {sql_query}")
